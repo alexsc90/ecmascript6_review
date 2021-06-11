@@ -78,5 +78,106 @@ console.log(globalVar);
 // const 
 
 const a = 'b';
-a = 'a'; // no va a permitir reasinar su valor...
+a = 'a'; // no va a permitir reasignar su valor...
 console.log(a);
+
+// Objetos
+
+let name = 'Alejandro';
+let age = 30;
+
+obj = {name: name, age: age};
+
+//es6
+
+obj2 = { name, age };
+console.log(obj2)
+
+// Arrow Function (funciones anónimas)
+
+const names = [
+    {name: 'Alejandro', age: 30},
+    {name: 'Yesica', age: 27}
+]
+
+let lisfOfNames = names.map(function (e) {
+    console.log(e.name);
+})
+
+// es6
+
+let lisfOfNames2 = names.map(e => console.log(e.name));
+
+const listOfNames3 = (name, age, country) => {
+    // ...
+} 
+
+const lisfOfNames4 = name => {
+    // ...
+}
+
+const square = num => num * num 
+
+// Promesas (asincronía)
+
+const helloPromise = () => {
+    return new Promise((resolve, reject) => {
+        if(true) {
+            resolve('Hey!');
+        } else {
+            reject('Ups!')
+        }
+    });
+}
+
+helloPromise()
+    .then(response => console.log(response))
+    .then(() => console.log('Hola!'))
+    .catch(error => console.log(error));
+
+// Inheritance
+
+class Calculator {
+    constructor() {
+        this.valueA = 0;
+        this.valueB = 0;
+    }
+
+    sum(valueA, valueB) {
+        this.valueA = valueA;
+        this.valueB = valueB;
+        return this.valueA + this.valueB
+    }
+}
+
+const calc = new Calculator();
+console.log(calc.sum(2, 2));
+
+// Import-export(module.js)
+
+import { hello } from './module';
+hello();
+
+// Generators
+
+function* helloWorld() {
+    if(true) {
+        yield 'Hello, ';
+    }
+    if(true) {
+        yield 'World';
+    }
+};
+
+const generatorHello = helloWorld();
+console.log(generatorHello.next().value);
+console.log(generatorHello.next().value);
+console.log(generatorHello.next().value);
+
+
+
+
+
+
+
+
